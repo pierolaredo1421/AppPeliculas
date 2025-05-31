@@ -16,12 +16,11 @@ public class BienvenidaView extends JFrame {
         lblTitulo.setFont(new Font("Comic Sans MS", Font.BOLD, 32));
         add(lblTitulo);
 
-        // Timer SOLO SE DISPARA UNA VEZ
         Timer timer = new Timer(2000, e -> {
             new SeleccionInicioView().setVisible(true);
             dispose();
         });
-        timer.setRepeats(false); // <-- Esto evita el loop infinito
+        timer.setRepeats(false);
         timer.start();
     }
 

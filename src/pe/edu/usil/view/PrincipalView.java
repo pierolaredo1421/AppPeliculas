@@ -62,10 +62,19 @@ public class PrincipalView extends JFrame {
             if (!genero.equals("Todo") && !p.getGenero().equalsIgnoreCase(genero)) continue;
 
             JPanel panel = new JPanel(new BorderLayout());
-            panel.add(new JLabel(p.getTitulo()), BorderLayout.CENTER);
+            panel.setBorder(BorderFactory.createMatteBorder(0, 0, 1, 0, Color.LIGHT_GRAY));
+            panel.setMaximumSize(new Dimension(Integer.MAX_VALUE, 50));
+            panel.setPreferredSize(new Dimension(panelPeliculas.getWidth(), 50));
+
+            JLabel lblTitulo = new JLabel(p.getTitulo());
+            lblTitulo.setFont(new Font("Segoe UI", Font.PLAIN, 16));
+            panel.add(lblTitulo, BorderLayout.CENTER);
+
             JButton btnEntrar = new JButton("Entrar");
+            btnEntrar.setPreferredSize(new Dimension(90, 40));
             panel.add(btnEntrar, BorderLayout.EAST);
             btnEntrar.addActionListener(e -> new DetallePeliculaView(p).setVisible(true));
+
             panelPeliculas.add(panel);
         }
         panelPeliculas.revalidate();
